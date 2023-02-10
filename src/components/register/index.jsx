@@ -53,7 +53,7 @@ const [values,setValues]=useState({
         console.log("submit clicked");
 try{
     console.log(values);
-    const fetchData=await fetch("https://aman-backend.onrender.com/register",
+    const fetchData=await fetch("http://localhost:3001/register",
     {
         method:"POST",
         headers: {

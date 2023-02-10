@@ -19,7 +19,7 @@ const UserContent= (props)=>{
         if(props.userDetails.user.coins<20){
             throw new Error("you don't have enough coins to purchase id")
         }else{
-            const fetchUser =await fetch("https://aman-backend.onrender.com/user/sub",{
+            const fetchUser =await fetch("http://localhost:3001/user/sub",{
                 method:"PUT",
                 headers: {
                     'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ const UserContent= (props)=>{
             const resUser=await fetchUser.json();
             // console.log(resUser);
         
-            const fetchLock =await fetch("https://aman-backend.onrender.com/lock/deactivate",{
+            const fetchLock =await fetch("http://localhost:3001/lock/deactivate",{
                 method:"PUT",
                 headers: {
                     'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const UserContent= (props)=>{
    
     const getIds=async ()=>{
         // console.log(`Bearer ${props.userDetails.token}`)
-        const fetchData=await fetch("https://aman-backend.onrender.com/lock",{
+        const fetchData=await fetch("http://localhost:3001/lock",{
             method:"GET",
             headers: {
                 'Content-Type': 'application/json',

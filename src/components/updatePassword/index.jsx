@@ -28,7 +28,7 @@ const UpdatePassword=(props)=>{
     const handleSubmit=async (e)=>{
         e.preventDefault();
         try{
-            const fetchData =await fetch("https://aman-backend.onrender.com/lock/update",{
+            const fetchData =await fetch("http://localhost:3001/lock/update",{
 
             method:"PUT",
             headers:{
