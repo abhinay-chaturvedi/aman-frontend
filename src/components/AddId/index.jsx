@@ -34,7 +34,7 @@ const AddId=(props)=>{
         e.preventDefault();
         console.log(e);
         try{
-            const fetchData=await fetch("http://localhost:3001/lock/add",{
+            const fetchData=await fetch("https://aman-backend.onrender.com/lock/add",{
                 method:"POST",
                 headers:{
                     "content-type":"application/json",

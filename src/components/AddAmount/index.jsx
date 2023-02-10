@@ -33,7 +33,7 @@ const AddAmount=(props)=>{
         e.preventDefault();
         try{
 
-     const fetchData=await fetch("http://localhost:3001/user/add",{
+     const fetchData=await fetch("https://aman-backend.onrender.com/user/add",{
         method:"POST",
         headers:{
             "content-type":"application/json",

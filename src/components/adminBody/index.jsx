@@ -28,7 +28,7 @@ const AdminBody=(props)=>{
     console.log(idObject)
    const getIds=async ()=>{
     try{
-        const fetchData =await fetch("http://localhost:3001/lock",{
+        const fetchData =await fetch("https://aman-backend.onrender.com/lock",{
             method:"GET",
             headers:{
                 "content-type":"apllication/json",
