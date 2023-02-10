@@ -66,7 +66,7 @@ const UserContent= (props)=>{
    
     const getIds=async ()=>{
         // console.log(`Bearer ${props.userDetails.token}`)
-        const fetchData=await fetch("http://localhost:3001/lock",{
+        const fetchData=await fetch("https://aman-backend.onrender.com/lock",{
             method:"GET",
             headers: {
                 'Content-Type': 'application/json',
