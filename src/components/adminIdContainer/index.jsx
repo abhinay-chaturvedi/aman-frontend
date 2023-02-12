@@ -1,4 +1,4 @@
-import Clock from "../clock";
+import Clock from "../clock"
 
 
 const AdminIdContainer=(props)=>{
