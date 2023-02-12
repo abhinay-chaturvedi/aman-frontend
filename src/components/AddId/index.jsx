@@ -29,12 +29,12 @@ const AddId=(props)=>{
     const handleChange=(e)=>{
         setValues({...values,[e.target.name]:e.target.value});
     }
-    console.log(values);
+    // console.log(values);
     const handleSubmit=async (e)=>{
         e.preventDefault();
-        console.log(e);
+        // console.log(e);
         try{
-            const fetchData=await fetch("http://localhost:3001/lock/add",{
+            const fetchData=await fetch("https://aman-backend.onrender.com/lock/add",{
                 method:"POST",
                 headers:{
                     "content-type":"application/json",
@@ -42,19 +42,19 @@ const AddId=(props)=>{
                 },
                 body:JSON.stringify(values)
             })
-            console.log(fetchData);
+            // console.log(fetchData);
            
             const response=await fetchData.json();
             if(fetchData.ok==false){
                 throw new Error(response.message);
             }
-            console.log(response);
+            // console.log(response);
             const newIds=props.ids.map((id)=>id);
             newIds.push(response);
             props.setIds(newIds);
             e.target.reset();
         }catch(err){
-            console.log(err);
+            // console.log(err);
             navigate("/error",{state:{message:err.message}});
         }
     }

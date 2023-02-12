@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import style from "./index.module.css"
 
 const UpdatePassword=(props)=>{
@@ -6,6 +7,7 @@ const UpdatePassword=(props)=>{
         oldPassword:"",
         newPassword:""
     })
+    const navigate=useNavigate();
     const[disable,setDisable]=useState(true);
     const [message,setMessage]=useState("");
     const handleNewPassword=(e)=>{
@@ -16,10 +18,10 @@ const UpdatePassword=(props)=>{
         setValues({...values,[e.target.name]:e.target.value});
        
     }
-    console.log(values);
+    // console.log(values);
     const handleOldPassword=(e)=>{
         const t=props.idObject.password.slice(0,e.target.value.length);
-        console.log(t);
+        // console.log(t);
         if(t!=e.target.value)setMessage("password does not match");
         else setMessage("");
         if(e.target.value!=props.idObject.password)setDisable(true);
@@ -28,7 +30,7 @@ const UpdatePassword=(props)=>{
     const handleSubmit=async (e)=>{
         e.preventDefault();
         try{
-            const fetchData =await fetch("http://localhost:3001/lock/update",{
+            const fetchData =await fetch("https://aman-backend.onrender.com/lock/update",{
 
             method:"PUT",
             headers:{
@@ -41,24 +43,26 @@ const UpdatePassword=(props)=>{
             })
             })
             const response=await fetchData.json();
-            console.log(response);
+            // console.log(response);
+            if(fetchData.ok==false)navigate("/error",{state:{message:response.message}})
             const res=props.ids.map((id)=>{
                 if(id._id===props.idObject._id)return response;
                 else return id;
             })
             props.setIds(res);
             props.setIdObject(null);
-            console.log(res);
+            // console.log(res);
             e.target.reset();
         }catch(err){
             console.log(err);
-       
+            navigate("/error",{state:{message:e.message}})
 
         }
 
     }
     const handleOnClose=()=>{
-        console.log("onclose clicked");
+        // console.log("onclose clicked");
+        
         props.setIdObject(null);
     }
     return (

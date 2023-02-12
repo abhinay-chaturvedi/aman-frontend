@@ -14,21 +14,21 @@ const AdminBody=(props)=>{
    const [idObject,setIdObject]=useState(null);
    const navigate=useNavigate();
     const handleClick=(e)=>{
-        console.log(e);
+        // console.log(e);
         const id=e.target.id;
         const password=e.target.accessKey;
         // console.log(id,password);
-        console.log("change password clicked");
+        // console.log("change password clicked");
         setIdObject({...idObject,
             _id:id,
             password:password
         })
         console.log(`${idObject} is `)
     }
-    console.log(idObject)
+    // console.log(idObject)
    const getIds=async ()=>{
     try{
-        const fetchData =await fetch("http://localhost:3001/lock",{
+        const fetchData =await fetch("https://aman-backend.onrender.com/lock",{
             method:"GET",
             headers:{
                 "content-type":"apllication/json",
@@ -39,7 +39,7 @@ const AdminBody=(props)=>{
         // console.log(response);
         setIds(response);
     }catch(e){
-        console.log(e);
+        // console.log(e);
         navigate("/error");
     }
    }
@@ -54,7 +54,7 @@ useEffect(()=>{
             <div className={style.availableIds}>
             {
                 ids.map((id)=>{
-                    return <AdminIdContainer key={id._id} btnpassword={id.password} btnId={id._id} lockId={id.lockId} is_Available={id.is_Available} onClick={handleClick} btn={style.btnPur} div={style.ids}/>
+                    return <AdminIdContainer time={id.time} key={id._id} btnpassword={id.password} btnId={id._id} lockId={id.lockId} is_Available={id.is_Available} onClick={handleClick} btn={style.btnPur} div={style.ids}/>
                 })
             }
             </div>

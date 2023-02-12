@@ -46,14 +46,14 @@ const [values,setValues]=useState({
     // console.log(values);
     const handleToggle=()=>{
         props.setLogin(true);
-        console.log("clicked")
+        // console.log("clicked")
     }
     const handleSubmit=async (e)=>{
         e.preventDefault();
-        console.log("submit clicked");
+        // console.log("submit clicked");
 try{
-    console.log(values);
-    const fetchData=await fetch("http://localhost:3001/register",
+    // console.log(values);
+    const fetchData=await fetch("https://aman-backend.onrender.com/register",
     {
         method:"POST",
         headers: {
@@ -62,10 +62,10 @@ try{
         body:JSON.stringify(values),
     })
     const response=await fetchData.json();
-    console.log(response);
+    // console.log(response);
     props.setLogin(true);
 }catch(e){
-    console.log(e);
+    // console.log(e);
 }
 
     }

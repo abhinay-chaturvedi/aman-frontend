@@ -15,7 +15,7 @@ const inputs=[
         name:"amount",
         placeholder:"enter the amount you want to add",
         label :"Amount",
-        type:"text",
+        type:"number",
         id:"amount2"
     }
 ]
@@ -33,7 +33,7 @@ const AddAmount=(props)=>{
         e.preventDefault();
         try{
 
-     const fetchData=await fetch("http://localhost:3001/user/add",{
+     const fetchData=await fetch("https://aman-backend.onrender.com/user/add",{
         method:"POST",
         headers:{
             "content-type":"application/json",
@@ -45,11 +45,11 @@ const AddAmount=(props)=>{
      if(fetchData.ok==false){
         throw new Error(response.message);
      }
-     console.log(response);
+    //  console.log(response);
     //  document.querySelector("FormInput").reset();
     e.target.reset();
         }catch(e){
-            console.log(e);
+            // console.log(e);
             navigate("/error",{state:{message:e.message}});
             
         }

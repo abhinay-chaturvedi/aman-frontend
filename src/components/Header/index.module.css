@@ -35,10 +35,22 @@ color: aquamarine;
 
 }
 .adminbtn{
-    border-radius: 12px;
+    /* border-radius: 12px; */
+    border: none;
     cursor: pointer;
     font-weight: bold;
-    color: aquamarine;
-    background-color: black;
+    color: black;
+    background-color: rgb(153, 118, 118);
     padding: 0px 6px;
 }
+@media only screen and (max-width: 650px) {
+   .logo{
+    font-size: medium;
+   }
+   .adminbtn{
+    font-weight: lighter;
+   }
+   .user{
+    font-size: medium;
+   }
+  }

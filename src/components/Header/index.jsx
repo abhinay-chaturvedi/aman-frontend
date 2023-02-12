@@ -4,7 +4,6 @@ import style from "./index.module.css"
 const Header=(props)=>{
     
 const handleLogout=()=>{
-    alert(props.userDetails.token)
     
     props.setUserDetails({user:null,token:null});
 }
